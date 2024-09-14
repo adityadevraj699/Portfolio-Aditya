@@ -105,7 +105,7 @@
                     </div>
 
                     <div class="col-lg-9">
-                        <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <form class="row contact_form" id="contactForm" onsubmit="sendMail(); return false;">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
@@ -114,7 +114,7 @@
                                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
+                                    <input type="text" class="form-control" id="subject" name="phone" placeholder="Enter Subject">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -231,12 +231,43 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
         <script src="vendors/counter-up/jquery.counterup.min.js"></script>
         <!-- contact js -->
-        <script src="js/jquery.form.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="js/contact.js"></script>
+       
         <!--gmaps Js-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
         <script src="js/gmaps.min.js"></script>
         <script src="js/theme.js"></script>
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("FIa6iYe__1j2XTRJR");  // Your public key
+        })();
+
+        function sendMail() {
+            var params = {
+              name: document.getElementById("name").value,
+              email: document.getElementById("email").value,
+              subject: document.getElementById("subject").value,
+              message: document.getElementById("message").value,
+            };
+          
+            const serviceID = "service_m8q92iw";
+            const templateID = "template_kvsa638";
+          
+              emailjs.send(serviceID, templateID, params)
+              .then(res=>{
+                  document.getElementById("name").value = "";
+                  document.getElementById("email").value = "";
+                  document.getElementById("subject").value = "";
+                  document.getElementById("message").value = "";
+                  console.log(res);
+                  alert("Your message sent successfully!!\nThankyou for connecting ADITYA KUMAR .")
+          
+              })
+              .catch(err=>console.log(err));
+          
+          }
+    </script>
     </body>
 </html>
