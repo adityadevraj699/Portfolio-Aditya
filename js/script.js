@@ -1,10 +1,12 @@
 var typed = new Typed('#multiple-text', {
-    strings: ['Frontend Developer','coder','Blogger','Freelancer'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
-  });
+  strings: ['Frontend Developer','coder','Blogger','Freelancer'],
+  typeSpeed: 100,
+  backSpeed: 100,
+  backDelay: 1000,
+  loop: true,
+  showCursor: true,      
+  cursorChar: '_',  
+});
 
   function sendMail() {
     var params = {
