@@ -4,7 +4,7 @@ var typed = new Typed('#multiple-text', {
     backSpeed: 100,
     backDelay: 1000,
     loop: true,
-    showCursor: true,       // Show the cursor (default is true)
+    showCursor: true,       
     cursorChar: '_',  
   });
 
