@@ -5,7 +5,7 @@ var typed = new Typed('#multiple-text', {
     backDelay: 1000,
     loop: true,
     showCursor: true,       
-    cursorChar: '_',  
+    cursorChar: '_', 
   });
 
   function sendMail() {
